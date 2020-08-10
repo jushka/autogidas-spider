@@ -12,6 +12,11 @@ BOT_NAME = 'autogidas_spider'
 SPIDER_MODULES = ['autogidas_spider.spiders']
 NEWSPIDER_MODULE = 'autogidas_spider.spiders'
 
+FEEDS = {
+  'ads.jl': {
+    'format': 'jsonlines'
+  }
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'autogidas_spider (+http://www.yourdomain.com)'
