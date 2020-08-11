@@ -14,7 +14,8 @@ NEWSPIDER_MODULE = 'autogidas_spider.spiders'
 
 FEEDS = {
   'ads.jl': {
-    'format': 'jsonlines'
+    'format': 'jsonlines',
+    'encoding': 'utf8'
   }
 }
 
@@ -67,9 +68,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'autogidas_spider.pipelines.AutogidasSpiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'autogidas_spider.pipelines.AutogidasSpiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

@@ -10,4 +10,5 @@ from itemadapter import ItemAdapter
 
 class AutogidasSpiderPipeline:
     def process_item(self, item, spider):
+        # item['make_model'] = 'renamed'
         return item
