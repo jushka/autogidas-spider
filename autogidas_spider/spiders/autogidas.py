@@ -24,6 +24,8 @@ class AutogidasSpider(scrapy.Spider):
     keys = params_block.xpath('.//div[@class="left"]/text()').getall()
     values = params_block.xpath('.//div[@class="right"]/text()').getall()
     params = dict(zip(keys, values))
+    price = response.xpath('//div[@class="params-block"][1]//div[@class="price"]/text()').get()
+    img_url = response.xpath('//div[@class="big-photo"]/img/@src').get()
 
     yield {
       'make': params.get('Markė'),
@@ -32,5 +34,7 @@ class AutogidasSpider(scrapy.Spider):
       'fuel_type': params.get('Kuro tipas'),
       'body_type': params.get('Kėbulo tipas'),
       'gearbox_type': params.get('Pavarų dėžė'),
-      'mileage': params.get('Rida, km')
+      'mileage': params.get('Rida, km'),
+      'price': price,
+      'img_url': img_url
     }
