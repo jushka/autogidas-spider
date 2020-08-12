@@ -10,13 +10,16 @@ from itemadapter import ItemAdapter
 
 class AutogidasSpiderPipeline:
     def process_item(self, item, spider):
-        item['make'] = item['make'].strip()
-        item['model'] = item['model'].strip()
-        item['fuel_type'] = item['fuel_type'].strip()
-        item['body_type'] = item['body_type'].strip()
-        item['gearbox_type'] = item['gearbox_type'].strip()
-        item['price'] = item['price'].replace(' €', '').replace(' ', '')
-        item['mfd_date'] = item['mfd_date'][:4]
+        for param in ['make', 'model', 'fuel_type', 'body_type', 'gearbox_type']:
+            if item[param] is not None:
+                item[param] = item[param].strip()
+
+        if item['price'] is not None:
+            item['price'] = item['price'].replace(' €', '').replace(' ', '')
+
+        if item['mfd_date'] is not None:
+            item['mfd_date'] = item['mfd_date'][:4]
+        
         if item['mileage'] is not None:
             item['mileage'] = item['mileage'].replace(' km', '')
 

@@ -3,7 +3,7 @@ import scrapy
 class AutogidasSpider(scrapy.Spider):
   name = 'autogidas'
   start_urls = [
-    'https://autogidas.lt/skelbimai/automobiliai/?f_1%5B0%5D=BMW&f_model_14%5B0%5D=Serija+7&f_215=&f_216=&f_41=&f_42=&f_376='
+    'https://autogidas.lt/skelbimai/automobiliai/?f_1%5B0%5D=&f_model_14%5B0%5D=&f_215=&f_216=&f_41=&f_42=&f_376='
   ]
 
   def parse(self, response):
